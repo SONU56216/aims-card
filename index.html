@@ -28,11 +28,10 @@
  <br> <a class="btn save" href="#" onclick="saveContact()">💾 Save Contact</a> <br>
  <br> <a class="btn" href="tel: 021-577060">📞 Call</a> <br>
   <br><a class="btn" href="https://wa.me/9852060533">💬 WhatsApp</a><br>
- <br> <a class="btn"
-   href="https://mail.google.com/mail/?view=cm&fs=1&to=aimscollegebrt@gmail.com"
-   target="_blank">
+ <br> <a class="btn" href="#" onclick="openGmail(event)">
 ✉️ Gmail
 </a>
+
 <br>
 
   <!-- 🌐 Website Links -->
@@ -86,8 +85,32 @@ const data = {
 }
 
 </script>
+  <script>
+function openGmail(e) {
+  e.preventDefault();
+
+  const email = "aimscollegebrt@gmail.com";
+  const subject = "Inquiry from AIMS College";
+  const body = "Hello AIMS College,%0A%0AI would like to know more about admission.";
+
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    // 📱 Mobile → open Gmail app / mail app
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+  } else {
+    // 💻 Desktop → open Gmail web
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`,
+      "_blank"
+    );
+  }
+}
+</script>
+
 
 </body>
 </html>
+
 
 
