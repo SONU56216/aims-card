@@ -40,12 +40,10 @@
   <br><a class="btn" href="https://sonu56216.github.io/examdetalis/" target="_blank">📊 Exam Details</a> <br>
 
   <!-- Social -->
-  <br><a class="btn" 
-   href="https://www.instagram.com/aimscollegebrt/" 
-   target="_blank" 
-   rel="noopener noreferrer">
+  <br><a class="btn" href="#" onclick="openInstagram(event)">
 📸 Instagram
 </a>
+
 <br>
   <br><a class="btn" href="https://www.facebook.com/share/1BQ9WcXj5i/" target="_blank">📘 Facebook</a><br>
   <br><a class="btn" href="https://www.tiktok.com/@aimscollege_biratnagar?_r=1&_t=ZS-93mV6IhdSUe" target="_blank">🎵 TikTok</a><br>
@@ -107,10 +105,43 @@ function openGmail(e) {
   }
 }
 </script>
+  <script>
+function openInstagram(e) {
+  e.preventDefault();
+
+  const profile = "aimscollegebrt";
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    const choice = confirm(
+      "Open Instagram app?\n\nPress OK = App\nPress Cancel = Browser"
+    );
+
+    if (choice) {
+      // 📱 Try opening Instagram app
+      window.location.href = `instagram://user?username=${profile}`;
+
+      // ⏳ Fallback to browser if app fails
+      setTimeout(() => {
+        window.location.href = `https://www.instagram.com/${profile}/`;
+      }, 1500);
+
+    } else {
+      // 🌐 Open browser
+      window.open(`https://www.instagram.com/${profile}/`, "_blank");
+    }
+  } else {
+    // 💻 Desktop
+    window.open(`https://www.instagram.com/${profile}/`, "_blank");
+  }
+}
+</script>
+
 
 
 </body>
 </html>
+
 
 
 
