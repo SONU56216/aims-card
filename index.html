@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AIMS College – Student Card Card</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  
+
+<div class="card">
+  <!-- Logo upload -->
+  <img src="logo.png" id="logo" class="logo" alt="College Logo" />
+
+
+  <h2 id="college">AIMS College</h2>
+
+  
+
+  </select>
+
+   <!-- Buttons -->
+ <br> <a class="btn save" href="#" onclick="saveContact()">💾 Save Contact</a> <br>
+ <br> <a class="btn" href="tel: 021-577060">📞 Call</a> <br>
+  <br><a class="btn" href="https://wa.me/9852060533">💬 WhatsApp</a><br>
+ <br> <a class="btn" href="aimscollegebrt@gmail.com">✉️ Gmail</a><br>
+
+  <!-- 🌐 Website Links -->
+ <br> <a class="btn" href="https://sonu56216.github.io/aims/" target="_blank">🌐 College Website</a><br><br>
+ <br> <a class="btn" href="https://sonu56216.github.io/admission0/" target="_blank">📝 Admission</a><br>
+  <br><a class="btn" href="https://sonu56216.github.io/examdetalis/" target="_blank">📊 Exam Details</a> <br>
+
+  <!-- Social -->
+  <br><a class="btn" href="https://www.instagram.com/aimscollegebrt?igsh=MTBvNGY3a3d0OGVudQ==" target="_blank">📸 Instagram</a><br>
+  <br><a class="btn" href="https://www.facebook.com/share/1BQ9WcXj5i/" target="_blank">📘 Facebook</a><br>
+  <br><a class="btn" href="https://www.tiktok.com/@aimscollege_biratnagar?_r=1&_t=ZS-93mV6IhdSUe" target="_blank">🎵 TikTok</a><br>
+
+  <!-- Location -->
+  <br><a class="btn" href="https://maps.app.goo.gl/KS7beFVuBgLqGkVm8" target="_blank">📍 Location</a><br>
+
+
+  <footer>Developed by <b>SONU KUMAR SAH</b></footer>
+</div>
+
+<script>
+function saveContact(){
+  const vcard = `BEGIN:VCARD\nVERSION:3.0\nFN:AIMS College\nORG:AIMS College\nTEL:+911234567890\nEMAIL:aimscollege@gmail.com\nEND:VCARD`;
+  const blob = new Blob([vcard], { type: 'text/vcard' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'AIMS_College.vcf';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+function loadLogo(e){
+  document.getElementById('logo').src = URL.createObjectURL(e.target.files[0]);
+}
+function setLang(l){
+  if(l==='hi'){
+    college.innerText='एआईएमएस कॉलेज';
+  }else{
+    college.innerText='AIMS College';
+  }
+}
+/* Language data */
+const data = {
+    en: { name: "Sonu Sah", role: "Digital Creator • Developer", phone: "Call Me", email: "Email Me", instagram: "Instagram", youtube: "YouTube", save: "Save to Contacts" },
+    hi: { name: "सोनू साह", role: "डिजिटल क्रिएटर • डेवलपर", phone: "कॉल करें", email: "ईमेल करें", instagram: "इंस्टाग्राम", youtube: "यूट्यूब", save: "कॉन्टैक्ट सेव करें" },
+    np: { name: "सोनु साह", role: "डिजिटल क्रिएटर • डेभलपर", phone: "फोन गर्नुहोस्", email: "इमेल गर्नुहोस्", instagram: "इन्स्टाग्राम", youtube: "युट्युब", save: "कन्ट्याक्ट सेभ गर्नुहोस्" }
+}
+
+</script>
+
+</body>
+</html>
